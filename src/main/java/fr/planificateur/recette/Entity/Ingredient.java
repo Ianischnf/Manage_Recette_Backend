@@ -2,6 +2,8 @@ package fr.planificateur.recette.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "ingredients")
 public class Ingredient {
@@ -13,6 +15,9 @@ public class Ingredient {
 
     @Column(name = "Name")
     private String Name;
+
+    @OneToMany(mappedBy = "ingredient")
+    private List<RecipeIngredient> recipeIngredients;
 
     public Ingredient() {}
 

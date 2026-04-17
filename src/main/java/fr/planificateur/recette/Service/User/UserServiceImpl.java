@@ -17,10 +17,12 @@ public class UserServiceImpl implements UserService {
 
     public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public User createUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return this.userRepository.save(user);
     }
 
@@ -48,7 +50,7 @@ public class UserServiceImpl implements UserService {
 
         // Update email
         if (updatedUser.getEmail() != null &&
-                !FoundUser.getEmail().equals(FoundUser.getEmail())) {
+                !updatedUser.getEmail().equals(FoundUser.getEmail())) {
 
             if (userRepository.existsByEmail(updatedUser.getEmail())) {
                 throw new RuntimeException("Email already in use");

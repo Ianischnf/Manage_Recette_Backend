@@ -1,6 +1,7 @@
 package fr.planificateur.recette.Service.Recipe;
 
 import fr.planificateur.recette.Entity.Recipe;
+import fr.planificateur.recette.Entity.RecipeIngredient;
 import fr.planificateur.recette.Repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,11 @@ public class RecipeServiceImpl implements RecipeService{
         this.recipeRepository = recipeRepository;
     }
 
+
+    @Override
+    public Recipe createRecipeWitchIngredient(Recipe recipe, List<RecipeIngredient> RecipeIngredient) {
+
+    }
 
     @Override
     public Recipe saveRecipe(Recipe recipe) {
