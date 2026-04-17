@@ -1,6 +1,7 @@
 package fr.planificateur.recette.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,7 +11,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long UserId;
+    private Long userId;
 
     @Column(name = "FirstName")
     private String firstName;
@@ -22,13 +23,13 @@ public class User {
     private String email;
 
     @Column(name = "Password")
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     public User() {}
 
     public User(Long userId, String firstName, String lastName, String email, String password) {
-        this.UserId     = userId;
+        this.userId     = userId;
         this.firstName  = firstName;
         this.lastName   = lastName;
         this.email      = email;
@@ -43,11 +44,11 @@ public class User {
     }
 
     public Long getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(Long userId) {
-        UserId = userId;
+        this.userId = userId;
     }
 
     public String getFirstName() {
