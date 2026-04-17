@@ -19,10 +19,10 @@ public class RecipeServiceImpl implements RecipeService{
     }
 
 
-    @Override
+    /*@Override
     public Recipe createRecipeWitchIngredient(Recipe recipe, List<RecipeIngredient> RecipeIngredient) {
 
-    }
+    }*/
 
     @Override
     public Recipe saveRecipe(Recipe recipe) {

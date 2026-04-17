@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public interface RecipeService {
-    Recipe createRecipeWitchIngredient(Recipe recipe, List<RecipeIngredient> RecipeIngredient);
+    //Recipe createRecipeWitchIngredient(Recipe recipe, List<RecipeIngredient> RecipeIngredient);
     Recipe saveRecipe(Recipe recipe);
     List<Recipe> fetchAllRecipes();
     Recipe updateRecipe(Recipe RecipeUpdated, Long RecipeId);

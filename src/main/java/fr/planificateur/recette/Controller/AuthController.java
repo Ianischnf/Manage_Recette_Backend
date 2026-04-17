@@ -1,5 +1,7 @@
 package fr.planificateur.recette.Controller;
 
+import fr.planificateur.recette.DTO.LoginRequestDTO;
+import fr.planificateur.recette.DTO.LoginResponseDTO;
 import fr.planificateur.recette.Entity.User;
 import fr.planificateur.recette.Service.Auth.AuthService;
 import jakarta.validation.Valid;
@@ -23,4 +25,12 @@ public class AuthController {
     public User register(@Valid @RequestBody User user) {
         return this.authService.register(user);
     }
+
+
+    @PostMapping("/login")
+    public LoginResponseDTO login(@Valid @RequestBody LoginRequestDTO request){
+        return this.authService.login(request);
+    }
 }
+
+
