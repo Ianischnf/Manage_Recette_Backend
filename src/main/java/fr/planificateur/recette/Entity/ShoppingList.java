@@ -30,4 +30,27 @@ public class ShoppingList {
         this.ShoppingListId = shoppingListId;
     }
 
+    public Long getShoppingListId() {
+        return ShoppingListId;
+    }
+
+    public void setShoppingListId(Long shoppingListId) {
+        ShoppingListId = shoppingListId;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public List<ShoppingListIngredient> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ShoppingListIngredient> items) {
+        this.items = items;
+    }
 }
