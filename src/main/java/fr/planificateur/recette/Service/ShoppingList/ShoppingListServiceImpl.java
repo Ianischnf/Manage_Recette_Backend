@@ -4,9 +4,11 @@ import fr.planificateur.recette.Entity.ShoppingList;
 import fr.planificateur.recette.Entity.ShoppingListIngredient;
 import fr.planificateur.recette.Repository.ShoppingListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ShoppingListServiceImpl implements ShoppingListService{
 
     @Autowired

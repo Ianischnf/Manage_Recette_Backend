@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import java.util.function.Function;
 
 @Service
 public class JwtService {
@@ -41,6 +42,10 @@ public class JwtService {
         return getClaims(token).getSubject();
     }
 
+    public String extractUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
 
     private Claims getClaims(String token) {
         return Jwts.parserBuilder()
@@ -48,6 +53,11 @@ public class JwtService {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
+    }
+
+    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+        final Claims claims = getClaims(token);
+        return claimsResolver.apply(claims);
     }
 
 }

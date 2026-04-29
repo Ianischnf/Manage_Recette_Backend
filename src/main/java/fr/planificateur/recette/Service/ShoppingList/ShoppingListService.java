@@ -2,6 +2,7 @@ package fr.planificateur.recette.Service.ShoppingList;
 
 import fr.planificateur.recette.Entity.ShoppingList;
 import fr.planificateur.recette.Entity.ShoppingListIngredient;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
