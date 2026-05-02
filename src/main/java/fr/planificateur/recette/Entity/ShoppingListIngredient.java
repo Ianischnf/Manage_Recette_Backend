@@ -8,7 +8,7 @@ public class ShoppingListIngredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double quantity;
+    private String quantity;
 
     private String unit;
 
@@ -22,7 +22,7 @@ public class ShoppingListIngredient {
 
     public ShoppingListIngredient() {}
 
-    public ShoppingListIngredient(Long id, ShoppingList shoppingList, Ingredient ingredient, Double quantity, String unit) {
+    public ShoppingListIngredient(Long id, ShoppingList shoppingList, Ingredient ingredient, String quantity, String unit) {
         this.id             = id;
         this.shoppingList   = shoppingList;
         this.ingredient     = ingredient;
@@ -30,7 +30,7 @@ public class ShoppingListIngredient {
         this.unit           = unit;
     }
 
-    public ShoppingListIngredient( ShoppingList shoppingList, Ingredient ingredient, Double quantity, String unit) {
+    public ShoppingListIngredient( ShoppingList shoppingList, Ingredient ingredient, String quantity, String unit) {
         this.shoppingList   = shoppingList;
         this.ingredient     = ingredient;
         this.quantity       = quantity;

@@ -1,6 +1,8 @@
 package fr.planificateur.recette.Controller;
 
+import fr.planificateur.recette.DTO.ShoppingListIngredientRequestDTO;
 import fr.planificateur.recette.Entity.ShoppingList;
+import fr.planificateur.recette.Entity.ShoppingListIngredient;
 import fr.planificateur.recette.Service.ShoppingList.ShoppingListService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,19 @@ public class ShoppingListController {
     @PostMapping
     public ShoppingList createShoppingList(@Valid @RequestBody ShoppingList shoppingList){
         return this.shoppingListService.createShoppingList(shoppingList);
+    }
+
+    @PostMapping("/{shoppingListId}/items")
+    public ShoppingListIngredient addIngredientToShoppingList(
+            @PathVariable Long shoppingListId,
+            @RequestBody ShoppingListIngredientRequestDTO request
+            ){
+
+        return this.shoppingListService.addIngredientToShoppingList(shoppingListId,
+                request.ingredientId(),
+                request.quantity(),
+                request.unit()
+                );
     }
 
     @GetMapping
